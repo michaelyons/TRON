@@ -2,11 +2,31 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Game Time</title>
+  <title>T|R|O|N</title>
+  </style>
   <link href='./game.css' rel='stylesheet' type='text/css'/>
 </head>
 <body>
-  <canvas id="game" width="300" height="300"></canvas>
+  <h1 class="title">T R O N</h1>
+  <container class="content-game-play">
+    <div class="move-letters">
+      <span class="players">Player 1</span>
+      <div class="wasd w">w</div>
+      <div class="wasd a">a</div>
+      <div class="wasd s">s</div>
+      <div class="wasd d">d</div>
+    </div>
+    <canvas class="before" id="game"></canvas>
+    <div class="move-arrows">
+        <span class="players">Player 2</span>
+          <div class="arrows up">↑</div>
+          <div class="arrows down">↓</div>
+          <div class="arrows left">←</div>
+          <div class="arrows right">→</div>
+        </div>
+  </container>
+  <button class="play">PLAY</button>
+  <script src="./jquery/jquery-3.2.1.js"></script>
   <script src="main.bundle.js"></script>
 </body>
 </html>
