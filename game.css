@@ -8,6 +8,7 @@
 }
 
 body {
+  margin: 0;
   height: 100vh;
   width: 100vw;
   background-color: #003438;
@@ -35,6 +36,8 @@ body {
 
 .title {
   text-align: center;
+  margin-top: 0;
+  padding-top: 3rem;
   font-size: 3rem;
   color: #00DEFE;
   justify-content: center;
