@@ -13,7 +13,7 @@ body {
   background-color: #003438;
 }
 
-.before {
+/* .before {
   display: none;
   height: 37rem;
   width: 37rem;
@@ -23,7 +23,7 @@ body {
   background-size: 37rem;
   background-repeat: no-repeat;
   background-image: url("Images/TronAnimation.gif");
-}
+} */
 
 #game {
   height: 37rem;
