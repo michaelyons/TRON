@@ -1,5 +1,153 @@
+* {
+  font-family: tron;
+}
+
+@font-face {
+  font-family: tron;
+  src: url(Tr2n.ttf);
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #003438;
+}
+
+.before {
+  display: none;
+  height: 37rem;
+  width: 37rem;
+  border: 1px dashed;
+  margin: auto;
+  display: block;
+  background-size: 37rem;
+  background-repeat: no-repeat;
+  background-image: url("Images/TronAnimation.gif");
+}
+
 #game {
+  height: 37rem;
+  width: 37rem;
   border: 1px dashed;
   margin: auto;
   display: block;
 }
+
+.title {
+  text-align: center;
+  font-size: 3rem;
+  color: #00DEFE;
+  justify-content: center;
+  -webkit-animation: title 1s step-end infinite;    
+    animation: title 1s step-end infinite;
+}
+
+.content-game-play {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: #00DEFE;
+}
+
+.players {
+  font-size: 2rem;
+  grid-column: 1 / 6;
+  margin: auto;
+  justify-content: center;
+}
+
+.move-arrows, .move-letters {
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.w, .up {
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+}
+
+.a, .left {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+}
+
+.s, .down {
+  grid-column: 3 / 4;
+  grid-row: 4 / 4;
+}
+
+.d, .right {
+  grid-column: 4 / 5;
+  grid-row: 4 / 5;
+}
+
+.arrows, .wasd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2rem;
+  width: 2rem;
+  color: #00DEFE;
+  border: 1px solid #00DEFE;
+}
+
+.arrows:hover {
+  border-color: #F5FFFE;
+}
+
+.wasd:hover {
+  border-color: #F5FFFE;
+}
+
+.play {
+  background-color: #003438;
+  display: block;
+  text-align: center;
+  margin: 1rem auto 0 auto;
+  font-size: 2rem;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.play:hover {
+  -webkit-animation: title .8s step-end infinite;    
+    animation: title .8s step-end infinite;
+}
+
+@-webkit-keyframes play {    
+  from, to {    
+    color: #00DEFE; 
+    }    
+    50% {    
+    color: #F5FFFE;  
+  }    
+}    
+@keyframes play {    
+  from, to {    
+    color: #F5FFFE;   
+    }    
+    50% {    
+    color: #00DEFE;  
+  }    
+} 
+
+@-webkit-keyframes title {    
+  from, to {    
+    color: #00DEFE; 
+    }    
+    50% {    
+    color: #F5FFFE;  
+  }    
+}    
+@keyframes title {    
+  from, to {    
+    color: #F5FFFE;   
+    }    
+    50% {    
+    color: #00DEFE;  
+  }    
+} 
