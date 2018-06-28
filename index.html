@@ -8,7 +8,6 @@
 </head>
 <body>
   <h1 class="title">T R O N</h1>
-
   <container class="content-game-play">
     <div class="move-letters">
       <span class="players">Player 1</span>
@@ -18,7 +17,6 @@
       <div class="wasd d">d</div>
     </div>
   <canvas id="game"></canvas>
-
     <div class="move-arrows">
         <span class="players">Player 2</span>
           <div class="arrows up">↑</div>
@@ -27,7 +25,11 @@
           <div class="arrows right">→</div>
         </div>
   </container>
-  <button class="play">PLAY</button>
+  <button class="press-play">PLAY</button>
+  <audio id="my_audio" src="Chromatics.mp3" loop="loop"></audio>
+  <audio id="slice-audio">
+    <source src="slice.mp3" type="audio/mp3">
+  </audio>
   <script src="main.bundle.js"></script>
 </body>
 </html>
