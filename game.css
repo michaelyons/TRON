@@ -14,17 +14,14 @@ body {
   background-color: #003438;
 }
 
-/* .before {
+.before {
   display: none;
   height: 37rem;
   width: 37rem;
   border: 1px dashed;
   margin: auto;
   display: block;
-  background-size: 37rem;
-  background-repeat: no-repeat;
-  background-image: url("Images/TronAnimation.gif");
-} */
+}
 
 #game {
   height: 37rem;
@@ -32,6 +29,9 @@ body {
   border: 1px dashed;
   margin: auto;
   display: block;
+  background-size: 37rem;
+  background-position-y: 1.9rem;
+  background-image: url("Images/TronGridCrushed.png");
 }
 
 .title {
@@ -40,9 +40,8 @@ body {
   padding-top: 3rem;
   font-size: 3rem;
   color: #00DEFE;
-  justify-content: center;
-  -webkit-animation: title 1s step-end infinite;    
-    animation: title 1s step-end infinite;
+  justify-content: center;   
+  animation: title 1.2s step-end infinite;
 }
 
 .content-game-play {
@@ -65,6 +64,14 @@ body {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   justify-content: center;
   align-items: center;
+}
+
+.move-arrows, .arrows {
+  color: #FF2131;
+}
+
+.arrows {
+  border: 1px solid #FF2131;
 }
 
 .w, .up {
@@ -93,30 +100,34 @@ body {
   align-items: center;
   height: 2rem;
   width: 2rem;
-  color: #00DEFE;
+
+}
+
+.wasd {
   border: 1px solid #00DEFE;
+  color: #00DEFE;
 }
 
 .arrows:hover {
-  border-color: #F5FFFE;
+  border-color: #FF2131;
 }
 
 .wasd:hover {
-  border-color: #F5FFFE;
+  border: 1px solid #85F9AB;
 }
 
 .press-play {
   background-color: #003438;
   display: block;
   text-align: center;
-  margin: 1rem auto 0 auto;
-  font-size: 2rem;
+  margin: 2rem auto 0 auto;
+  font-size: 3rem;
   border: none;
-  color: white;
+  color: #00DEFE;
   cursor: pointer;
 }
 
-.play:hover {
+.press-play:hover {
   -webkit-animation: title .8s step-end infinite;    
     animation: title .8s step-end infinite;
 }
@@ -126,12 +137,12 @@ body {
     color: #00DEFE; 
     }    
     50% {    
-    color: #F5FFFE;  
+    color: #FF2131;  
   }    
 }    
 @keyframes play {    
   from, to {    
-    color: #F5FFFE;   
+    color: #FF2131;   
     }    
     50% {    
     color: #00DEFE;  
@@ -143,12 +154,12 @@ body {
     color: #00DEFE; 
     }    
     50% {    
-    color: #F5FFFE;  
+    color: #FF2131;  
   }    
 }    
 @keyframes title {    
   from, to {    
-    color: #F5FFFE;   
+    color: #FF2131;   
     }    
     50% {    
     color: #00DEFE;  
