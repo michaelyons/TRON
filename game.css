@@ -70,6 +70,15 @@ body {
   color: #FF2131;
 }
 
+.player-score {
+  grid-row: 6 / 7;
+  grid-column: span 5;
+  display: grid;
+  justify-items: center;
+  font-size: 1.4rem;
+  margin-left: .5rem;
+}
+
 .arrows {
   border: 1px solid #FF2131;
 }
