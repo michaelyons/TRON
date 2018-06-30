@@ -34,9 +34,18 @@ body {
   background-image: url("Images/TronGridCrushed.png");
 }
 
+#game:::after {
+  content: "";
+  opacity: .5;
+  position: absolute;
+  background-size: 37rem;
+  background-position-y: 1.9rem;
+  background-image: url("Images/TronGridCrushed.png");
+}
+
 .title {
   text-align: center;
-  margin-top: 0;
+  margin: 0 0 1rem 0;
   padding-top: 3rem;
   font-size: 3rem;
   color: #00DEFE;
