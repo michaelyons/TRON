@@ -34,7 +34,7 @@ body {
   background-image: url("Images/TronGridCrushed.png");
 }
 
-#game:::after {
+#game::after {
   content: "";
   opacity: .5;
   position: absolute;
@@ -85,7 +85,6 @@ body {
   display: grid;
   justify-items: center;
   font-size: 1.4rem;
-  margin-left: .5rem;
 }
 
 .arrows {
