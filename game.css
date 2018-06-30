@@ -81,9 +81,15 @@ body {
 
 .player-score {
   grid-row: 6 / 7;
-  grid-column: span 5;
+  grid-column: 2 / 5;
   display: grid;
   justify-items: center;
+  font-size: 1.4rem;
+}
+
+.score1, .score2 {
+  grid-row: 6 / 7;
+  grid-column: 5 / 6;
   font-size: 1.4rem;
 }
 
