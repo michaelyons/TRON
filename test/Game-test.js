@@ -27,13 +27,7 @@ describe ('Game', function () {
     })
   });
 
-  it('should collide if player collides with other player trail', function() {
-    assert.deepEqual(, {
-      
-    })
-  });
-
-  it('should stop moving once collision is detected', function() {
+  it('should detect collision if player collides with other player trail and cease animation', function() {
     assert.deepEqual(, {
       
     })
@@ -45,19 +39,13 @@ describe ('Game', function () {
     })
   });
 
-  it('', function() {
+  it('should allow players to collide with one another', function() {
     assert.deepEqual(, {
       
     })
   });
 
-  it('', function() {
-    assert.deepEqual(, {
-      
-    })
-  });
-
-  it('', function() {
+  it('should detect collision with walls and cease animation', function() {
     assert.deepEqual(, {
       
     })
