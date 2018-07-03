@@ -10,11 +10,51 @@ describe ('Game', function () {
       isGameOver: false,
       moving: false,
       stopped: false,
-      player1: {x: 30, y: 50, height: 1, width: 1, color: 'rgb(92,247,249)', dx: 1, dy: 0, dxv: 1, direction: 'right'},
-      player2: {x: 270, y: 50, height: 1, width: 1, color: 'rgb(255,33,49)', dx: -1, dy: 0, dxv: 1, direction: 'left'},
+      player1: {
+        x: 30, 
+        y: 50, 
+        height: 1, 
+        width: 1, 
+        color: 'rgb(92,247,249)', 
+        dx: 1, 
+        dy: 0, 
+        dxv: 1, 
+        direction: 'right'
+      },
+      player2: {
+        x: 270, 
+        y: 50, 
+        height: 1, 
+        width: 1, 
+        color: 'rgb(255,33,49)', 
+        dx: -1, 
+        dy: 0, 
+        dxv: 1, 
+        direction: 'left'
+      },
       player1Score: 0,
       player2Score: 0, 
-      bikes: [{x: 30, y: 50, height: 1, width: 1, color: 'rgb(92,247,249)', dx: 1, dy: 0, dxv: 1, direction: 'right'}, {x: 270, y: 50, height: 1, width: 1, color: 'rgb(255,33,49)', dx: -1, dy: 0, dxv: 1, direction: 'left'}],
+      bikes: [{
+        x: 30, 
+        y: 50, 
+        height: 1, 
+        width: 1, 
+        color: 'rgb(92,247,249)', 
+        dx: 1,
+        dy: 0, 
+        dxv: 1, 
+        direction: 'right'
+      }, {
+        x: 270, 
+        y: 50, 
+        height: 1, 
+        width: 1, 
+        color: 'rgb(255,33,49)', 
+        dx: -1, 
+        dy: 0, 
+        dxv: 1, 
+        direction: 'left'
+      }],
       keyPressed: false,
       trail1: [],
       trail2: []
@@ -59,7 +99,7 @@ describe ('Game', function () {
     assert.deepEqual(gameB.trail2[1], { x: 268, y: 50, height: 1, width: 1 });
   });
 
-  it('should stop the game when player1 bike collides with player2 trail', function() {
+  it('should stop game when player1 collides player2 trail', function() {
     const game = new Game();
     
     game.player1.x = 68;
@@ -77,26 +117,138 @@ describe ('Game', function () {
     game.trailCollision();
 
     assert.equal(game.stopped, true);
+
   });
 
-  it.skip('should increment score of winner by 1 when a player runs into the other players trail', function() {
-    const gamePiece1 = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1);
-    const gamePiece2 = new GamePiece(51, 51, 10, 5, 'rgb(250, 0, 0)', 1);
-
-    gamePiece1.trailCollision(gamePiece2);
+  it('should increment score of player1 when player2 collides', function() {
+    const game = new Game();
     
-    assert.notEqual(this.player1Score, this.player2Score);
+    game.player1.x = 68;
+    game.player1.y = 50;
+    game.player2.x = 70;
+    game.player2.y = 50;
+    
+    assert.equal(game.player1Score, 0);
+    
+    game.player2.move();
+    game.createTrail();
+    game.player2.move();
+    game.createTrail();
+
+    game.trailCollision();
+
+    assert.equal(game.player1Score, 2);
+
+  });
+
+  it('should increment score of player2 when player1 collides', function() {
+    const game = new Game();
+    
+    game.player1.x = 68;
+    game.player1.y = 50;
+    game.player2.x = 70;
+    game.player2.y = 50;
+    
+    assert.equal(game.player2Score, 0);
+    
+    game.player1.move();
+    game.createTrail();
+    game.player1.move();
+    game.createTrail();
+
+    game.trailCollision();
+
+    assert.equal(game.player2Score, 2);
+    
+  });
+
+   
+  it('should stop game when player1 collides with own trail', function() {
+    const game = new Game();
+    
+    game.player1.x = 50;
+    game.player1.y = 50;
+    game.player1.dx = 1;
+    
+    game.player1.move();
+    game.createTrail();
+    game.player1.move();
+    game.createTrail();
+
+    game.player1.dy = -1;
+
+    game.player1.move();
+    game.createTrail();
+
+    game.player1.dx = -1;
+
+    game.player1.move();
+    game.createTrail();
+
+    game.player1.dy = 5;
+
+    game.player1.move();
+    game.createTrail();
+
+    game.trailCollision();
+
+    assert.equal(game.stopped, true);
+  });
+   
+  it('should stop game when player2 collides with own trail', function() {
+    const game = new Game();
+    
+    game.player2.x = 50;
+    game.player2.y = 50;
+    game.player2.dx = -1;
+    
+    game.player1.move();
+    game.createTrail();
+    game.player1.move();
+    game.createTrail();
+
+    game.player1.dy = -1;
+
+    game.player1.move();
+    game.createTrail();
+
+    game.player1.dx = 1;
+
+    game.player1.move();
+    game.createTrail();
+
+    game.player1.dy = 5;
+
+    game.player1.move();
+    game.createTrail();
+
+    game.trailCollision();
+
+    assert.equal(game.stopped, true);
+
   });
   
-  it.skip('should alert game over when a player score is equal to 3', function() {
-    var game = new Game(); 
+  it('should be gameover when player score equals 3', function() {
+    const game = new Game();
     
-    game.player1Score++;
-    game.player1Score++;
-    game.player1Score++;
-  
-    game.endGame();
+    game.player1.x = 68;
+    game.player1.y = 50;
+    game.player2.x = 70;
+    game.player2.y = 50;
     
-    assert.equal(isGameover, true);
+    assert.equal(game.player2Score, 0);
+    
+    game.player1.move();
+    game.createTrail();
+    game.player1.move();
+    game.createTrail();
+    game.player1.move();
+    game.createTrail();
+
+    game.trailCollision();
+
+    assert.equal(game.player2Score, 3);
+    assert.equal(game.isGameOver, true);
+    
   });
 });
