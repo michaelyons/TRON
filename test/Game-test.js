@@ -51,7 +51,7 @@ describe ('Game', function () {
       assert.deepEqual(gameB.trail2[0], { x: 268, y: 50, height: 1, width: 1 })
     })
 
-    it('should stop the game when player1 bike collides with player2 trail', function() {
+    it"('should stop the game when player1 bike collides with player2 trail', function() {
       const gamePiece1 = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1);
       const gamePiece2 = new GamePiece(51, 51, 10, 5, 'rgb(250, 0, 0)', 1);
       
