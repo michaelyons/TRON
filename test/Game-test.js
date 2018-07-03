@@ -51,14 +51,4 @@ describe ('Game', function () {
       assert.deepEqual(gameB.trail2[0], { x: 268, y: 50, height: 1, width: 1 })
 
     })
-
-    it('each player should detect collision', function() {
-       const gameC = new Game()
-       gameC.player1.move()
-        
-       gameC.trailCollision()
-
-      assert.deepEqual(gameB.trail1[0], { x: 31, y: 50, height: 1, width: 1 })
-       
-    })
 })

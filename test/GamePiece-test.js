@@ -43,4 +43,28 @@ describe ('GamePiece', function () {
     assert.equal(gamePiece.x, 51);
     assert.equal(gamePiece.y, 50);
   })
+
+  ////////
+
+  
+  it('should increment score of winner by 1 when a player runs into the other players trail', function() {
+    const game = new Game();
+
+    game.trailCollision();
+    
+    assert.notEqual(this.player1Score, this.player2Score);
+      
+    })
+
+  it('should alert game over when a player score is equal to 3', function() {
+    var game = new Game();
+    
+    game.player1Score++;
+    game.player1Score++;
+    game.player1Score++;
+    game.endGame();
+    
+    assert.equal(isGameover, true)
+
+  })
 })
