@@ -37,18 +37,26 @@ describe ('Game', function () {
       const gameB = new Game()  
       
       gameB.player1.move();
-        gameB.player2.move();
+      gameB.player2.move();
       gameB.createTrail()
 
       assert.deepEqual(gameB.trail1[0], { x: 31, y: 50, height: 1, width: 1 })
       assert.deepEqual(gameB.trail2[0], { x: 269, y: 50, height: 1, width: 1 })
     
       gameB.player1.move();
-        gameB.player2.move();
-        gameB.createTrail()
+      gameB.player2.move();
+      gameB.createTrail()
 
-        assert.deepEqual(gameB.trail1[0], { x: 32, y: 50, height: 1, width: 1 })
+      assert.deepEqual(gameB.trail1[0], { x: 32, y: 50, height: 1, width: 1 })
       assert.deepEqual(gameB.trail2[0], { x: 268, y: 50, height: 1, width: 1 })
+    })
 
+    it('should stop the game when player1 bike collides with player2 trail', function() {
+      const gamePiece1 = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1);
+      const gamePiece2 = new GamePiece(51, 51, 10, 5, 'rgb(250, 0, 0)', 1);
+      
+      const isColliding = gamePiece1.isCollidingWith(gamePiece2);
+      
+      assert.equal(trailCollision, true);
     })
 })

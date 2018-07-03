@@ -29,7 +29,6 @@ describe ('GamePiece', function () {
     assert.equal(isColliding, true);
   })
   
-  
   it('should collide when object overlaps with wall', function() {
     const gamePiece1 = new GamePiece(0, 0, 1, 1, 'rgb(0, 222, 254)', 1);
     const canvasObj = new GamePiece(0, 0, 100, 100, 'rgb(92,247,249)', 0, 0, 'right');
@@ -45,9 +44,6 @@ describe ('GamePiece', function () {
     assert.equal(gamePiece.x, 51);
     assert.equal(gamePiece.y, 50);
   })
-
-  ////////
-
 
   it.skip('should increment score of winner by 1 when a player runs into the other players trail', function() {
     const gamePiece1 = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1);
