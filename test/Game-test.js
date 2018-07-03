@@ -9,11 +9,11 @@ describe ('Game', function () {
         isGameOver: false,
         moving: false,
         stopped: false,
-        player1: {x: 30, y: 50, height: 1, width: 1, color: 'rgb(92,247,249)', dx: 1, dy: 0, dxv: 1},
-        player2: {x: 270, y: 50, height: 1, width: 1, color: 'rgb(255,33,49)', dx: -1, dy: 0, dxv: 1},
+        player1: {x: 30, y: 50, height: 1, width: 1, color: 'rgb(92,247,249)', dx: 1, dy: 0, dxv: 1, direction: 'right'},
+        player2: {x: 270, y: 50, height: 1, width: 1, color: 'rgb(255,33,49)', dx: -1, dy: 0, dxv: 1, direction: 'left'},
         player1Score: 0,
         player2Score: 0, 
-        bikes: [{x: 30, y: 50, height: 1, width: 1, color: 'rgb(92,247,249)', dx: 1, dy: 0, dxv: 1}, {x: 270, y: 50, height: 1, width: 1, color: 'rgb(255,33,49)', dx: -1, dy: 0, dxv: 1}],
+        bikes: [{x: 30, y: 50, height: 1, width: 1, color: 'rgb(92,247,249)', dx: 1, dy: 0, dxv: 1, direction: 'right'}, {x: 270, y: 50, height: 1, width: 1, color: 'rgb(255,33,49)', dx: -1, dy: 0, dxv: 1, direction: 'left'}],
         keyPressed: false,
         trail1: [],
         trail2: []
@@ -52,12 +52,13 @@ describe ('Game', function () {
 
     })
 
-    // it('each player should detect collision', function() {
-    //    const gameC = new Game()
-       
-    //    gameC.trailCollision()
+    it('each player should detect collision', function() {
+       const gameC = new Game()
+       gameC.player1.move()
+        
+       gameC.trailCollision()
 
-    //   assert.deepEqual(gameB.trail1[0], { x: 31, y: 50, height: 1, width: 1 })
+      assert.deepEqual(gameB.trail1[0], { x: 31, y: 50, height: 1, width: 1 })
        
-    // })
+    })
 })
