@@ -4,7 +4,7 @@ const GamePiece = require('../lib/GamePiece.js');
 describe ('GamePiece', function () {
 
   it('should have properties', function() {
-    const gamePiece = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1);
+    const gamePiece = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1, 0, 'right');
 
     assert.deepEqual(gamePiece, {
       x: 50,
@@ -14,7 +14,8 @@ describe ('GamePiece', function () {
       color: 'rgb(0, 222, 254)',
       dx: 1,
       dy: 0,
-      dxv: 1
+      dxv: 1,
+      direction: 'right'
     });
   })
 
@@ -37,7 +38,7 @@ describe ('GamePiece', function () {
   })
 
   it('should be able to move', function() {
-    const gamePiece = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1);
+    const gamePiece = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1, 0, 'right');
     gamePiece.move();
     assert.equal(gamePiece.x, 51);
     assert.equal(gamePiece.y, 50);
