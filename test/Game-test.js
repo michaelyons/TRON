@@ -249,6 +249,6 @@ describe ('Game', function () {
 
     assert.equal(game.player2Score, 3);
     assert.equal(game.isGameOver, true);
-
+    
   });
 });

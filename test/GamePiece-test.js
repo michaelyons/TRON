@@ -5,7 +5,8 @@ describe ('GamePiece', function () {
 
   
   it('should have properties', function() {
-    const gamePiece = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1, 0, 'right');
+    const gamePiece = new GamePiece(
+      50, 50, 10, 5, 'rgb(0, 222, 254)', 1, 0, 'right');
     
     assert.deepEqual(gamePiece, {
       x: 50,
@@ -31,7 +32,8 @@ describe ('GamePiece', function () {
   
   it('should collide when object overlaps with wall', function() {
     const gamePiece1 = new GamePiece(0, 0, 1, 1, 'rgb(0, 222, 254)', 1);
-    const canvasObj = new GamePiece(0, 0, 100, 100, 'rgb(92,247,249)', 0, 0, 'right');
+    const canvasObj = new GamePiece(
+      0, 0, 100, 100, 'rgb(92,247,249)', 0, 0, 'right');
     
     const isColliding = gamePiece1.isCollidingWith(canvasObj);
     
@@ -39,7 +41,8 @@ describe ('GamePiece', function () {
   });
 
   it('should be able to move', function() {
-    const gamePiece = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1, 0, 'right');
+    const gamePiece = new GamePiece(
+      50, 50, 10, 5, 'rgb(0, 222, 254)', 1, 0, 'right');
     
     gamePiece.move();
 
