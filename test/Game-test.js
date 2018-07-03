@@ -49,14 +49,24 @@ describe ('Game', function () {
 
       assert.deepEqual(gameB.trail1[0], { x: 32, y: 50, height: 1, width: 1 })
       assert.deepEqual(gameB.trail2[0], { x: 268, y: 50, height: 1, width: 1 })
+
+      game
     })
 
-    it"('should stop the game when player1 bike collides with player2 trail', function() {
-      const gamePiece1 = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1);
-      const gamePiece2 = new GamePiece(51, 51, 10, 5, 'rgb(250, 0, 0)', 1);
+    it('should stop the game when player1 bike collides with player2 trail', function() {
+      const game = new Game();
       
-      const isColliding = gamePiece1.isCollidingWith(gamePiece2);
+      game.player1.x = 70;
+      game.player1.y = 50;
+      game.player2.x = 71;
+      game.player2.y = 50;
+      console.log(game.player2)
+      assert.equal(game.player2Score, 0);
       
-      assert.equal(trailCollision, true);
+      game.player1.move();
+      game.trailCollision()
+
+      assert.equal(game.player2Score, 1);
+
     })
 })

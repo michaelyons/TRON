@@ -57,6 +57,7 @@ describe ('GamePiece', function () {
 
   it.skip('should alert game over when a player score is equal to 3', function() {
     var game = new Game();
+    game.player1.x = 
     
     game.player1Score++;
     game.player1Score++;
