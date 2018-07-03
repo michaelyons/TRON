@@ -17,7 +17,7 @@ describe ('Game', function () {
         keyPressed: false,
         trail1: [],
         trail2: []
-    })
+    });
   })
 
   it('should be able to draw two players and move', function() {
@@ -29,44 +29,52 @@ describe ('Game', function () {
     gameA.player1.move();
     gameA.player2.move();
 
-    assert.equal(gameA.player1.x, 31)
-    assert.equal(gameA.player2.x, 269)
-    })
+    assert.equal(gameA.player1.x, 31);
+    assert.equal(gameA.player2.x, 269);
+  })
 
     it('each player should have a trail', function() {
       const gameB = new Game()  
       
       gameB.player1.move();
       gameB.player2.move();
-      gameB.createTrail()
+      gameB.createTrail();
 
-      assert.deepEqual(gameB.trail1[0], { x: 31, y: 50, height: 1, width: 1 })
-      assert.deepEqual(gameB.trail2[0], { x: 269, y: 50, height: 1, width: 1 })
+      assert.deepEqual(gameB.trail1[0], { x: 31, y: 50, height: 1, width: 1 });
+      assert.deepEqual(gameB.trail2[0], { x: 269, y: 50, height: 1, width: 1 });
     
       gameB.player1.move();
       gameB.player2.move();
-      gameB.createTrail()
+      gameB.createTrail();
 
-      assert.deepEqual(gameB.trail1[0], { x: 32, y: 50, height: 1, width: 1 })
-      assert.deepEqual(gameB.trail2[0], { x: 268, y: 50, height: 1, width: 1 })
+      assert.deepEqual(gameB.trail1[0], { x: 32, y: 50, height: 1, width: 1 });
+      assert.deepEqual(gameB.trail2[0], { x: 268, y: 50, height: 1, width: 1 });
 
-      game
+      gameB.player1.move();
+      gameB.player2.move();
+      gameB.createTrail();
+
+      assert.deepEqual(gameB.trail1[1], { x: 32, y: 50, height: 1, width: 1 });
+      assert.deepEqual(gameB.trail2[1], { x: 268, y: 50, height: 1, width: 1 });
     })
 
     it('should stop the game when player1 bike collides with player2 trail', function() {
       const game = new Game();
       
-      game.player1.x = 70;
+      game.player1.x = 68;
       game.player1.y = 50;
-      game.player2.x = 71;
+      game.player2.x = 70;
       game.player2.y = 50;
-      console.log(game.player2)
-      assert.equal(game.player2Score, 0);
       
-      game.player1.move();
-      game.trailCollision()
+      assert.equal(game.stopped, false);
+      
+      game.player2.move();
+      game.createTrail();
+      game.player2.move();
+      game.createTrail();
 
-      assert.equal(game.player2Score, 1);
+      game.trailCollision();
 
+      assert.equal(game.stopped, true);
     })
 })

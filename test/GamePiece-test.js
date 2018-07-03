@@ -40,7 +40,9 @@ describe ('GamePiece', function () {
 
   it('should be able to move', function() {
     const gamePiece = new GamePiece(50, 50, 10, 5, 'rgb(0, 222, 254)', 1, 0, 'right');
+    
     gamePiece.move();
+
     assert.equal(gamePiece.x, 51);
     assert.equal(gamePiece.y, 50);
   })
@@ -52,19 +54,17 @@ describe ('GamePiece', function () {
     gamePiece1.trailCollision(gamePiece2);
     
     assert.notEqual(this.player1Score, this.player2Score);
-      
-    })
+  })
 
   it.skip('should alert game over when a player score is equal to 3', function() {
-    var game = new Game();
-    game.player1.x = 
+    var game = new Game(); 
     
     game.player1Score++;
     game.player1Score++;
     game.player1Score++;
+  
     game.endGame();
     
     assert.equal(isGameover, true)
-
   })
 })
