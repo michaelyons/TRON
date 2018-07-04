@@ -3,7 +3,6 @@ const GamePiece = require('../lib/GamePiece.js');
 
 describe ('GamePiece', function () {
 
-  
   it('should have properties', function() {
     const gamePiece = new GamePiece(
       50, 50, 10, 5, 'rgb(0, 222, 254)', 1, 0, 'right');
