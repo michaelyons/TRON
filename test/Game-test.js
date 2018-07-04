@@ -139,7 +139,6 @@ describe ('Game', function () {
 
     game.player2.move();
     game.createTrail();
-
     game.trailCollision();
 
     assert.equal(game.player1Score, 1);
@@ -163,7 +162,6 @@ describe ('Game', function () {
 
     game.player1.move();
     game.createTrail();
-
     game.trailCollision();
 
     assert.equal(game.player2Score, 1);
