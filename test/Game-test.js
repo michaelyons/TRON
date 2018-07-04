@@ -111,9 +111,11 @@ describe ('Game', function () {
     
     game.player2.move();
     game.createTrail();
+
+    assert.equal(game.stopped, false)
+
     game.player2.move();
     game.createTrail();
-
     game.trailCollision();
 
     assert.equal(game.stopped, true);
@@ -125,19 +127,22 @@ describe ('Game', function () {
     
     game.player1.x = 68;
     game.player1.y = 50;
-    game.player2.x = 70;
+    game.player2.x = 71;
     game.player2.y = 50;
     
     assert.equal(game.player1Score, 0);
     
     game.player2.move();
     game.createTrail();
+
+    assert.equal(game.player1Score, 0);
+
     game.player2.move();
     game.createTrail();
 
     game.trailCollision();
 
-    assert.equal(game.player1Score, 2);
+    assert.equal(game.player1Score, 1);
 
   });
 
@@ -146,19 +151,22 @@ describe ('Game', function () {
     
     game.player1.x = 68;
     game.player1.y = 50;
-    game.player2.x = 70;
+    game.player2.x = 71;
     game.player2.y = 50;
     
     assert.equal(game.player2Score, 0);
     
     game.player1.move();
     game.createTrail();
+
+    assert.equal(game.player1Score, 0);
+
     game.player1.move();
     game.createTrail();
 
     game.trailCollision();
 
-    assert.equal(game.player2Score, 2);
+    assert.equal(game.player2Score, 1);
     
   });
 
@@ -172,24 +180,24 @@ describe ('Game', function () {
     
     game.player1.move();
     game.createTrail();
-    game.player1.move();
-    game.createTrail();
+    game.trailCollision();
+
+    assert.equal(game.stopped, false);
 
     game.player1.dy = -1;
-
     game.player1.move();
     game.createTrail();
 
     game.player1.dx = -1;
-
     game.player1.move();
     game.createTrail();
 
     game.player1.dy = 5;
-
     game.player1.move();
     game.createTrail();
 
+    game.player1.move();
+    game.createTrail();
     game.trailCollision();
 
     assert.equal(game.stopped, true);
@@ -204,24 +212,21 @@ describe ('Game', function () {
     
     game.player1.move();
     game.createTrail();
-    game.player1.move();
-    game.createTrail();
-
+    
     game.player1.dy = -1;
-
     game.player1.move();
     game.createTrail();
 
     game.player1.dx = 1;
-
     game.player1.move();
     game.createTrail();
 
     game.player1.dy = 5;
-
     game.player1.move();
     game.createTrail();
 
+    game.player1.move();
+    game.createTrail();
     game.trailCollision();
 
     assert.equal(game.stopped, true);
@@ -240,15 +245,15 @@ describe ('Game', function () {
     
     game.player1.move();
     game.createTrail();
-    game.player1.move();
-    game.createTrail();
+
     game.player1.move();
     game.createTrail();
 
+    game.player1.move();
+    game.createTrail();
     game.trailCollision();
 
     assert.equal(game.player2Score, 3);
     assert.equal(game.isGameOver, true);
-    
   });
 });
