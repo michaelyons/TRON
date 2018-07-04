@@ -8,71 +8,53 @@
 }
 
 body {
-  margin: 0;
-  height: 100vh;
-  width: 100vw;
   background-color: #003438;
-}
-
-.before {
-  display: none;
-  height: 37rem;
-  width: 37rem;
-  border: 1px dashed;
-  margin: auto;
-  display: block;
+  height: 100vh;
+  margin: 0;
+  width: 100vw;
 }
 
 #game {
-  height: 37rem;
-  width: 37rem;
+  background-image: url("Images/TronGridCrushed.png");
+  background-position-y: 1.9rem;
+  background-size: 37rem;
   border: 1px dashed;
-  margin: auto;
   display: block;
-  background-size: 37rem;
-  background-position-y: 1.9rem;
-  background-image: url("Images/TronGridCrushed.png");
-}
-
-#game::after {
-  content: "";
-  opacity: .5;
-  position: absolute;
-  background-size: 37rem;
-  background-position-y: 1.9rem;
-  background-image: url("Images/TronGridCrushed.png");
+  height: 37rem;
+  margin: auto;
+  width: 37rem;
 }
 
 .title {
-  text-align: center;
+  animation: title 1.2s step-end infinite;
+  color: #00DEFE;
+  font-size: 3rem;
+  justify-content: center;   
   margin: 0 0 1rem 0;
   padding-top: 3rem;
-  font-size: 3rem;
-  color: #00DEFE;
-  justify-content: center;   
-  animation: title 1.2s step-end infinite;
+  text-align: center;
 }
 
 .content-game-play {
+  color: #00DEFE;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  color: #00DEFE;
 }
 
 .players {
   font-size: 2rem;
   grid-column: 1 / 6;
-  margin: auto;
   justify-content: center;
+  margin: auto;
 }
 
 .move-arrows, .move-letters {
-  margin: auto;
+  align-items: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   justify-content: center;
-  align-items: center;
+  margin: auto;
 }
 
 .move-arrows, .arrows {
@@ -80,17 +62,17 @@ body {
 }
 
 .player-score {
+  display: grid;
+  font-size: 1.4rem;
   grid-row: 6 / 7;
   grid-column: 2 / 5;
-  display: grid;
   justify-items: center;
-  font-size: 1.4rem;
 }
 
 .score1, .score2 {
+  font-size: 1.4rem;
   grid-row: 6 / 7;
   grid-column: 5 / 6;
-  font-size: 1.4rem;
 }
 
 .arrows {
@@ -118,12 +100,11 @@ body {
 }
 
 .arrows, .wasd {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   height: 2rem;
+  justify-content: center;
   width: 2rem;
-
 }
 
 .wasd {
@@ -141,18 +122,17 @@ body {
 
 .press-play {
   background-color: #003438;
-  display: block;
-  text-align: center;
-  margin: 2rem auto 0 auto;
-  font-size: 3rem;
   border: none;
   color: #00DEFE;
   cursor: pointer;
+  display: block;
+  font-size: 3rem;
+  margin: 2rem auto 0 auto;
+  text-align: center;
 }
 
 .press-play:hover {
-  -webkit-animation: title .8s step-end infinite;    
-    animation: title .8s step-end infinite;
+  animation: title .8s step-end infinite;
 }
 
 @-webkit-keyframes play {    
