@@ -8,8 +8,7 @@ describe ('Game', function () {
 
     assert.deepEqual(game, {
       isGameOver: false,
-      moving: false,
-      stopped: false,
+      paused: false,
       player1: {
         x: 30, 
         y: 50, 
@@ -107,18 +106,18 @@ describe ('Game', function () {
     game.player2.x = 70;
     game.player2.y = 50;
     
-    assert.equal(game.stopped, false);
+    assert.equal(game.paused, false);
     
     game.player2.move();
     game.createTrail();
 
-    assert.equal(game.stopped, false)
+    assert.equal(game.paused, false);
 
     game.player2.move();
     game.createTrail();
-    game.trailCollision();
+    game.detectTrailCollision();
 
-    assert.equal(game.stopped, true);
+    assert.equal(game.paused, true);
 
   });
 
@@ -139,7 +138,7 @@ describe ('Game', function () {
 
     game.player2.move();
     game.createTrail();
-    game.trailCollision();
+    game.detectTrailCollision();
 
     assert.equal(game.player1Score, 1);
 
@@ -162,7 +161,7 @@ describe ('Game', function () {
 
     game.player1.move();
     game.createTrail();
-    game.trailCollision();
+    game.detectTrailCollision();
 
     assert.equal(game.player2Score, 1);
     
@@ -178,9 +177,9 @@ describe ('Game', function () {
     
     game.player1.move();
     game.createTrail();
-    game.trailCollision();
+    game.detectTrailCollision();
 
-    assert.equal(game.stopped, false);
+    assert.equal(game.paused, false);
 
     game.player1.dy = -1;
     game.player1.move();
@@ -196,9 +195,9 @@ describe ('Game', function () {
 
     game.player1.move();
     game.createTrail();
-    game.trailCollision();
+    game.detectTrailCollision();
 
-    assert.equal(game.stopped, true);
+    assert.equal(game.paused, true);
   });
    
   it('should stop game when player2 collides with own trail', function() {
@@ -225,9 +224,9 @@ describe ('Game', function () {
 
     game.player1.move();
     game.createTrail();
-    game.trailCollision();
+    game.detectTrailCollision();
 
-    assert.equal(game.stopped, true);
+    assert.equal(game.paused, true);
 
   });
   
@@ -249,7 +248,7 @@ describe ('Game', function () {
 
     game.player1.move();
     game.createTrail();
-    game.trailCollision();
+    game.detectTrailCollision();
 
     assert.equal(game.player2Score, 3);
     assert.equal(game.isGameOver, true);
