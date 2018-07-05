@@ -8,7 +8,6 @@ describe ('Game', function () {
 
     assert.deepEqual(game, {
       isGameOver: false,
-      moving: false,
       paused: false,
       player1: {
         x: 30, 
@@ -140,7 +139,6 @@ describe ('Game', function () {
     game.player2.move();
     game.createTrail();
     game.detectTrailCollision();
-    game.detectWallCollision();
 
     assert.equal(game.player1Score, 1);
 
@@ -164,7 +162,6 @@ describe ('Game', function () {
     game.player1.move();
     game.createTrail();
     game.detectTrailCollision();
-    game.detectWallCollision();
 
     assert.equal(game.player2Score, 1);
     
